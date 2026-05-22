@@ -1,0 +1,7 @@
+- [x] Analyze the dark mode implementation in Navbar.jsx and App.jsx
+- [x] Identify that dark mode toggle is in Navbar but App.jsx styles not responding
+- [x] Remove container div in main.jsx that might interfere with dark mode
+- [x] Add dark mode classes to buttons in App.jsx
+- [x] Add dark mode class to tentang section in App.jsx
+- [x] Add wrapper div in App.jsx with bg-white dark:bg-zinc-900 min-h-screen for background switching
+- [x] Test the dark mode toggle functionality in the browser
