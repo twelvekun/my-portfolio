@@ -519,8 +519,7 @@ function App() {
 
                     {/* CTA Button */}
                     <a
-                      href="https://demo.airbersih.my.id/"
-                      className={`inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group/btn ${
+                                      className={`inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group/btn ${
                         theme === 'dark'
                           ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 hover:from-cyan-500/40 hover:to-blue-500/40 border border-cyan-500/30 hover:border-cyan-500/50'
                           : 'bg-gradient-to-r from-cyan-400/20 to-blue-400/20 text-cyan-700 hover:from-cyan-400/40 hover:to-blue-400/40 border border-cyan-400/40 hover:border-cyan-400/60'
