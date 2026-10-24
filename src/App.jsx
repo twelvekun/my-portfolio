@@ -148,7 +148,7 @@ function App() {
 
               {/* Description */}
               <p className={`leading-relaxed text-lg ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-                Passionate Full Stack Developer dengan expertise di ReactJS, NextJS, dan Node.js. Siap mengubah ide menjadi digital reality yang memukau.
+               A recent Informatics Engineering graduate from the Islamic University of Lamongan with experience as a Fullstack Developer, specializing in the development of web and mobile applications using the SDLC framework. Proficient in PHP (CodeIgniter, Laravel, OOP), HTML5, CSS3, JavaScript, and MySQL, with expertise in API integration and mobile development. Skilled in client-side debugging, database query optimization, and collaborative teamwork.
               </p>
 
               {/* CTA Buttons */}
@@ -172,7 +172,7 @@ function App() {
               {/* Stats */}
               <div className={`grid grid-cols-3 gap-4 pt-8 border-t ${theme === 'dark' ? 'border-cyan-500/20' : 'border-cyan-400/30'}`}>
                 <div>
-                  <div className={`text-3xl font-bold ${theme === 'dark' ? 'text-cyan-400' : 'text-cyan-600'}`}>25+</div>
+                  <div className={`text-3xl font-bold ${theme === 'dark' ? 'text-cyan-400' : 'text-cyan-600'}`}>3+</div>
                   <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Proyek</p>
                 </div>
                 <div>
@@ -260,7 +260,7 @@ function App() {
                           <i className={`ri-code-line text-2xl ${theme === 'dark' ? 'text-cyan-400' : 'text-cyan-600'}`}></i>
                         </div>
                         <div>
-                          <h3 className={`text-3xl font-bold ${theme === 'dark' ? 'text-cyan-400' : 'text-cyan-600'}`}>25+</h3>
+                          <h3 className={`text-3xl font-bold ${theme === 'dark' ? 'text-cyan-400' : 'text-cyan-600'}`}>3+</h3>
                           <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Proyek Selesai</p>
                         </div>
                       </div>
@@ -292,7 +292,7 @@ function App() {
                           <i className={`ri-team-line text-2xl ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}></i>
                         </div>
                         <div>
-                          <h3 className={`text-3xl font-bold ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>100+</h3>
+                          <h3 className={`text-3xl font-bold ${theme === 'dark' ? 'text-blue-400' : 'text-blue-600'}`}>3+</h3>
                           <p className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>Klien Puas</p>
                         </div>
                       </div>
@@ -517,17 +517,22 @@ function App() {
                       ))}
                     </div>
 
-                    {/* CTA Button */}
-                    <a
-                                      className={`inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group/btn ${
-                        theme === 'dark'
-                          ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 hover:from-cyan-500/40 hover:to-blue-500/40 border border-cyan-500/30 hover:border-cyan-500/50'
-                          : 'bg-gradient-to-r from-cyan-400/20 to-blue-400/20 text-cyan-700 hover:from-cyan-400/40 hover:to-blue-400/40 border border-cyan-400/40 hover:border-cyan-400/60'
-                      }`}
-                    >
-                      Lihat Proyek
-                      <i className="ri-arrow-right-line group-hover/btn:translate-x-1 transition-transform"></i>
-                    </a>
+                    
+{/* CTA Button */}
+<a
+  href={proyek.link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group/btn ${
+    theme === 'dark'
+      ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 hover:from-cyan-500/40 hover:to-blue-500/40 border border-cyan-500/30 hover:border-cyan-500/50'
+      : 'bg-gradient-to-r from-cyan-400/20 to-blue-400/20 text-cyan-700 hover:from-cyan-400/40 hover:to-blue-400/40 border border-cyan-400/40 hover:border-cyan-400/60'
+  }`}
+>
+  Lihat Proyek
+  <i className="ri-arrow-right-line group-hover/btn:translate-x-1 transition-transform"></i>
+</a>
+
                   </div>
                 </div>
               </div>
