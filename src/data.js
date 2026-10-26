@@ -158,7 +158,7 @@ export const listProyek = [
     nama: "Sistem Pdam website dan mobile",
     desk: "Sistem Informasi Pengelolaan Air Bersih Desa terintegrasi yang dirancang untuk memodernisasi pencatatan meteran, penagihan, dan pelaporan keuangan PDAM skala desa Sistem ini terdiri dari dua platform: Web Dashboard untuk Admin/Kepala Desa dan Mobile App (Android) untuk Petugas Lapangan",
     tools: ["Laravel", "React", "TailwindCSS", "React native", "Expo"],
-    link: "https://demo.airbersih.my.id/",
+    link: "https://airbersih.my.id/",
     dad: "200",
   },
   {
