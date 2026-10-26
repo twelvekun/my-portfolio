@@ -6,10 +6,10 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: 'ri-github-fill', label: 'GitHub', href: '#' },
-    { icon: 'ri-linkedin-box-fill', label: 'LinkedIn', href: '#' },
-    { icon: 'ri-instagram-fill', label: 'Instagram', href: '#' },
-    { icon: 'ri-twitter-x-fill', label: 'Twitter', href: '#' },
+    { icon: 'ri-github-fill', label: 'GitHub', href: 'https://github.com/twelvekun' },
+    { icon: 'ri-linkedin-box-fill', label: 'LinkedIn', href: 'https://linkedin.com/in/ahmadsadadfathoni' },
+    { icon: 'ri-instagram-fill', label: 'Instagram', href: 'https://instagram.com/sadad fath' },
+    { icon: 'ri-twitter-x-fill', label: 'Twitter', href: 'https://twitter.com/sadadfathoni' },
   ];
 
   const navLinks = [

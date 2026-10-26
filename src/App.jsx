@@ -151,23 +151,49 @@ function App() {
                A recent Informatics Engineering graduate from the Islamic University of Lamongan with experience as a Fullstack Developer, specializing in the development of web and mobile applications using the SDLC framework. Proficient in PHP (CodeIgniter, Laravel, OOP), HTML5, CSS3, JavaScript, and MySQL, with expertise in API integration and mobile development. Skilled in client-side debugging, database query optimization, and collaborative teamwork.
               </p>
 
-              {/* CTA Buttons */}
-              <div className="flex gap-4 pt-4">
-                <a href="#" className={`group relative px-8 py-3 rounded-lg font-semibold overflow-hidden ${theme === 'dark' ? '' : 'text-white'}`}>
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg"></div>
-                  <div className={`absolute inset-0.5 rounded-lg group-hover:bg-opacity-50 transition-all duration-300 ${theme === 'dark' ? 'bg-black' : 'bg-white'}`}></div>
-                  <span className={`relative flex items-center gap-2 group-hover:text-cyan-300 transition-colors ${theme === 'dark' ? 'text-white' : 'text-white'}`}>
-                    Download CV <i className="ri-download-2-fill"></i>
-                  </span>
-                </a>
-                <a href={`#`} className={`group relative px-8 py-3 rounded-lg font-semibold border transition-all duration-300 backdrop-blur-sm flex items-center gap-2 ${
-                  theme === 'dark'
-                    ? 'border-cyan-500/50 hover:border-cyan-400 text-cyan-300 hover:text-cyan-200 hover:bg-cyan-500/10'
-                    : 'border-cyan-500 hover:border-cyan-600 text-cyan-600 hover:text-cyan-700 hover:bg-cyan-50'
-                }`}>
-                  Lihat Proyek <i className="ri-arrow-right-line"></i>
-                </a>
-              </div>
+              
+{/* CTA Buttons */}
+<div className="flex flex-wrap gap-4 pt-4">
+  {/* Download CV */}
+  <a
+    href="/AHMAD SADAD FATHONI resume.pdf"
+    download="AHMAD SADAD FATHONI resume.pdf"
+    className={`group relative px-8 py-3 rounded-lg font-semibold overflow-hidden ${
+      theme === 'dark' ? '' : 'text-white'
+    }`}
+  >
+    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg"></div>
+
+    <div className="absolute inset-0.5 rounded-lg bg-black transition-colors duration-300 group-hover:bg-gray-900"></div>
+
+    <span className="relative flex items-center gap-2 text-white transition-colors group-hover:text-cyan-300">
+      Download CV
+      <i className="ri-download-2-fill"></i>
+    </span>
+  </a>
+
+  {/* Scroll ke Portfolio */}
+  <a
+    href="#proyek"
+    onClick={(e) => {
+      e.preventDefault();
+      document.getElementById('proyek')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+      window.history.replaceState(null, '', '#proyek');
+    }}
+    className={`group relative px-8 py-3 rounded-lg font-semibold border transition-all duration-300 backdrop-blur-sm flex items-center gap-2 ${
+      theme === 'dark'
+        ? 'border-cyan-500/50 hover:border-cyan-400 text-cyan-300 hover:text-cyan-200 hover:bg-cyan-500/10'
+        : 'border-cyan-500 hover:border-cyan-600 text-cyan-600 hover:text-cyan-700 hover:bg-cyan-50'
+    }`}
+  >
+    Lihat Proyek
+    <i className="ri-arrow-right-line transition-transform duration-300 group-hover:translate-x-1"></i>
+  </a>
+</div>
+
 
               {/* Stats */}
               <div className={`grid grid-cols-3 gap-4 pt-8 border-t ${theme === 'dark' ? 'border-cyan-500/20' : 'border-cyan-400/30'}`}>
