@@ -1,4 +1,4 @@
-import HeroImage from "/assets/gua.jpg";
+import HeroImage from "/assets/DataImage.png";
 import HeroImage2 from "/assets/gua2.jpeg";
 import HeroImage3 from "/assets/image.png";
 import AboutImage from "/assets/about.png"
