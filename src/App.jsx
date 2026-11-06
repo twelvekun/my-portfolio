@@ -22,6 +22,7 @@ function App() {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const lastScrollY = useRef(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  
  
  useEffect(() => {
   let previousScrollY = window.scrollY;

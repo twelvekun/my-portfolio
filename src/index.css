@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
-/* Di Tailwind v4, Dark Mode otomatis mendeteksi class "dark" 
-   jika Anda menggunakan konfigurasi standar.
-*/
-
+/* 1. Kunci agar dark mode HANYA aktif jika ada class 'dark' di HTML */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* 2. Gabungkan SEMUA custom animation & keyframes di sini */
 @theme {
-  /* Definisikan animasi Anda di sini (cara baru v4) */
   --animate-popRotate: popRotate 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
   --animate-finishBounce: finishBounce 260ms ease;
+  
+  /* Perbaikan cara menulis animasi typing & blink di v4 */
+  --animate-typing: typing 3s steps(19) infinite;
+  --animate-blink: blink-cursor 0.75s step-end infinite;
 
   @keyframes popRotate {
     0% { transform: rotate(0deg) scale(1); opacity: 0.95; }
@@ -22,19 +23,14 @@
     50% { transform: scale(1.06); }
     100% { transform: scale(1); }
   }
-}
-@animation {
-  animation: 
-    typing 3s steps(19) infinite,
-    blink-cursor 0.75s step-end infinite;
-    @keyframes typing {
-  0%, 90%, 100% { width: 0; } /* Mulai dari kosong, dan reset kembali ke kosong di akhir */
-  30%, 60% { width: 11ch; }    /* Teks selesai diketik dan menahan posisinya */
-}
 
-/* Animasi Kursor Berkedip */
-@keyframes blink-cursor {
-  from, to { border-color: transparent }
-  50% { border-color: black; }
+  @keyframes typing {
+    0%, 90%, 100% { width: 0; }
+    30%, 60% { width: 11ch; }
+  }
+
+  @keyframes blink-cursor {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+  }
 }
-} 

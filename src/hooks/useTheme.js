@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
 const useTheme = () => {
-  // Cek local storage atau preferensi sistem saat awal load
+  // Cek local storage saat awal load, jika tidak ada langsung PAKSA ke "light"
   const getInitialTheme = () => {
     if (typeof window === "undefined") return "light";
     const saved = localStorage.getItem("theme");
     if (saved) return saved;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    
+    // KUNCI UTAMA: Hapus deteksi prefers-color-scheme, langsung return "light"
+    return "light"; 
   };
 
   const [theme, setTheme] = useState(getInitialTheme);
