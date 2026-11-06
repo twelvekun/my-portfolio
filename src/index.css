@@ -23,3 +23,18 @@
     100% { transform: scale(1); }
   }
 }
+@animation {
+  animation: 
+    typing 3s steps(19) infinite,
+    blink-cursor 0.75s step-end infinite;
+    @keyframes typing {
+  0%, 90%, 100% { width: 0; } /* Mulai dari kosong, dan reset kembali ke kosong di akhir */
+  30%, 60% { width: 11ch; }    /* Teks selesai diketik dan menahan posisinya */
+}
+
+/* Animasi Kursor Berkedip */
+@keyframes blink-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+} 

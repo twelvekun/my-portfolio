@@ -1,41 +1,30 @@
-
 import DataImage from '../../data';
 
 function About({ theme }) {
   return (
     <section
       id="tentang"
-      className="relative py-20 px-5 section-reveal"
+      className={`relative py-20 px-5 section-reveal transition-colors duration-300 ${
+        theme === 'dark' ? 'bg-stone-900' : 'bg-amber-50'
+      }`}
     >
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold">
-            <span
-              className={`bg-gradient-to-r ${
-                theme === 'dark'
-                  ? 'from-cyan-400 to-purple-500'
-                  : 'from-cyan-600 to-purple-600'
-              } bg-clip-text text-transparent`}
-            >
-              About Me
-            </span>
-          </h2>
-        </div>
+       
 
         <div className="group relative">
           <div
             className={`absolute -inset-1 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500 ${
               theme === 'dark'
-                ? 'bg-gradient-to-r from-cyan-600/50 to-purple-600/50'
-                : 'bg-gradient-to-r from-cyan-400/50 to-purple-400/50'
+                ? 'bg-gradient-to-r from-amber-600/30 to-yellow-600/30'
+                : 'bg-gradient-to-r from-amber-400/30 to-yellow-400/30'
             }`}
           />
 
           <div
             className={`relative backdrop-blur-xl rounded-2xl border transition-all duration-300 ${
               theme === 'dark'
-                ? 'bg-gradient-to-br from-cyan-900/20 to-purple-900/20 border-cyan-500/20 group-hover:border-cyan-500/50'
-                : 'bg-white border-slate-200 shadow-xl shadow-slate-200/50 group-hover:border-cyan-300'
+                ? 'bg-neutral-900/80 border-amber-500/20 group-hover:border-amber-500/50 shadow-2xl'
+                : 'bg-amber-50/40 border-amber-200 shadow-xl shadow-amber-900/5 group-hover:border-amber-400'
             }`}
           >
             <div className="grid grid-cols-1 lg:grid-cols-5 items-center">
@@ -44,7 +33,7 @@ function About({ theme }) {
                 <img
                   src={DataImage.AboutImage}
                   alt="About Sadad Fathoni"
-                  className="w-full h-auto object-cover rounded-lg max-w-sm"
+                  className="w-full h-auto object-cover rounded-lg max-w-sm shadow-md border border-amber-500/20"
                   loading="lazy"
                 />
               </div>
@@ -55,51 +44,26 @@ function About({ theme }) {
                   <span
                     className={`bg-gradient-to-r ${
                       theme === 'dark'
-                        ? 'from-cyan-400 to-purple-500'
-                        : 'from-cyan-600 to-purple-600'
+                        ? 'from-amber-400 to-yellow-400'
+                        : 'from-amber-600 to-yellow-600'
                     } bg-clip-text text-transparent`}
                   >
-                    Introducing Myself
+                    About
                   </span>
                 </h2>
 
                 <p
                   className={`text-lg leading-relaxed ${
-                    theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
                   }`}
                 >
-                  Saya adalah Full Stack Developer yang memiliki
-                  passion dalam menciptakan website dan aplikasi
+                  Saya adalah Freelance Full Stack Developer yang memiliki
+                  passion dalam merancang, membangun dan menguji website ataupun aplikasi
                   mobile. Saya berfokus pada pengembangan solusi
                   digital yang fungsional, responsif, dan mudah
                   digunakan.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <AboutStat
-                    icon="ri-code-line"
-                    value="3+"
-                    label="Proyek"
-                    color="cyan"
-                    theme={theme}
-                  />
-
-                  <AboutStat
-                    icon="ri-timeline-line"
-                    value="4+"
-                    label="Tahun Pengalaman"
-                    color="purple"
-                    theme={theme}
-                  />
-
-                  <AboutStat
-                    icon="ri-team-line"
-                    value="3+"
-                    label="Klien"
-                    color="blue"
-                    theme={theme}
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -111,21 +75,21 @@ function About({ theme }) {
 
 function AboutStat({ icon, value, label, color, theme }) {
   const colors = {
-    cyan: theme === 'dark' ? 'text-cyan-400' : 'text-cyan-600',
-    purple: theme === 'dark' ? 'text-purple-400' : 'text-purple-600',
-    blue: theme === 'dark' ? 'text-blue-400' : 'text-blue-600',
+    amber: theme === 'dark' ? 'text-amber-400' : 'text-amber-600',
+    yellow: theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600',
+    orange: theme === 'dark' ? 'text-orange-400' : 'text-orange-600',
   };
 
   const backgrounds = {
-    cyan: 'from-cyan-500/30 to-blue-500/30',
-    purple: 'from-purple-500/30 to-pink-500/30',
-    blue: 'from-blue-500/30 to-cyan-500/30',
+    amber: theme === 'dark' ? 'bg-amber-500/10 border border-amber-500/20' : 'bg-amber-100 border border-amber-200',
+    yellow: theme === 'dark' ? 'bg-yellow-500/10 border border-yellow-500/20' : 'bg-yellow-100 border border-yellow-200',
+    orange: theme === 'dark' ? 'bg-orange-500/10 border border-orange-500/20' : 'bg-orange-100 border border-orange-200',
   };
 
   return (
     <div className="flex items-start gap-4">
       <div
-        className={`w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 bg-gradient-to-br ${backgrounds[color]}`}
+        className={`w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 ${backgrounds[color]}`}
       >
         <i className={`${icon} text-2xl ${colors[color]}`} />
       </div>
@@ -137,7 +101,7 @@ function AboutStat({ icon, value, label, color, theme }) {
 
         <p
           className={`text-sm ${
-            theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
           }`}
         >
           {label}
