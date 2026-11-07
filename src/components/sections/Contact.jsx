@@ -1,57 +1,68 @@
 
 function Contact({ theme }) {
-  const inputStyle = `w-full px-4 py-3 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-1 ${
-    theme === 'dark'
-      ? 'bg-cyan-900/20 border-cyan-500/30 text-white placeholder-gray-500 focus:border-cyan-500/60 focus:ring-cyan-500/50'
-      : 'bg-cyan-100/20 border-cyan-400/40 text-gray-900 placeholder-gray-600 focus:border-cyan-400/60 focus:ring-cyan-400/50'
-  }`;
+  const isDark = theme === 'dark';
+
+  const bg = isDark
+    ? 'bg-amber-950 text-amber-50'
+    : 'bg-amber-100 text-neutral-950';
+
+  const inputStyle = `w-full px-4 py-3 rounded-lg border
+    transition-all duration-300 focus:outline-none
+    focus:ring-1 ${
+      isDark
+        ? 'bg-[#17110e] border-amber-700/50 text-white placeholder-amber-200/40 focus:border-red-500 focus:ring-red-500/30'
+        : 'bg-white/60 border-amber-300 text-neutral-950 placeholder-amber-900/40 focus:border-red-500 focus:ring-red-500/30'
+    }`;
 
   return (
     <section
       id="kontak"
-      className="relative py-20 px-5 section-reveal"
+      className={`relative py-16 sm:py-20 px-5
+        section-reveal transition-colors duration-500 ${bg}`}
     >
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4">
-            <span
-              className={`bg-gradient-to-r ${
-                theme === 'dark'
-                  ? 'from-cyan-400 to-purple-500'
-                  : 'from-cyan-600 to-purple-600'
-              } bg-clip-text text-transparent`}
-            >
-              Mari Berkolaborasi
-            </span>
+
+        {/* HEADER */}
+        <div className="text-center mb-12 sm:mb-16">
+
+          <span className="text-[10px] sm:text-xs
+            tracking-[0.3em] uppercase font-bold text-red-600">
+            Get In Touch — 2026
+          </span>
+
+          <h2 className="text-3xl sm:text-5xl
+            font-black uppercase mt-3 mb-4">
+            Mari <span className="text-red-600">Berkolaborasi.</span>
           </h2>
 
-          <p
-            className={`text-lg ${
-              theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-            }`}
-          >
+          <p className={`text-sm sm:text-lg max-w-2xl mx-auto
+            leading-relaxed ${
+              isDark ? 'text-amber-200/60' : 'text-amber-900/70'
+            }`}>
             Punya ide atau pertanyaan? Hubungi saya sekarang dan
             mari ciptakan sesuatu yang luar biasa bersama.
           </p>
         </div>
 
+        {/* FORM CONTAINER */}
         <div className="group relative">
-          <div
-            className={`absolute -inset-1 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500 ${
-              theme === 'dark'
-                ? 'bg-gradient-to-r from-cyan-600/50 to-purple-600/50'
-                : 'bg-gradient-to-r from-cyan-400/50 to-purple-400/50'
-            }`}
-          />
+
+          {/* GLOW EFFECT */}
+          <div className="absolute -inset-1 rounded-2xl
+            bg-gradient-to-r from-red-600/30 to-amber-500/30
+            blur opacity-0 group-hover:opacity-100
+            transition duration-500" />
 
           <form
             action="https://formsubmit.co/sadadarguas@gmail.com"
             method="POST"
-            className={`relative backdrop-blur-xl p-8 md:p-12 rounded-2xl border space-y-6 ${
-              theme === 'dark'
-                ? 'bg-gradient-to-br from-cyan-900/30 to-purple-900/30 border-cyan-500/20'
-                : 'bg-gradient-to-br from-cyan-100/30 to-purple-100/30 border-cyan-400/30'
-            }`}
+            className={`relative p-6 sm:p-8 md:p-12
+              rounded-2xl border space-y-6
+              transition-colors duration-500 ${
+                isDark
+                  ? 'bg-[#17110e] border-amber-800/50'
+                  : 'bg-[#fffaf0] border-amber-300'
+              }`}
           >
             <input
               type="hidden"
@@ -59,9 +70,11 @@ function Contact({ theme }) {
               value="Pesan dari Portfolio Sadad"
             />
 
+            {/* NAME & EMAIL */}
             <div className="grid md:grid-cols-2 gap-6">
+
               <div className="space-y-2">
-                <label className="block text-sm font-medium">
+                <label className="block text-sm font-semibold">
                   Nama Lengkap
                 </label>
 
@@ -75,7 +88,7 @@ function Contact({ theme }) {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium">
+                <label className="block text-sm font-semibold">
                   Email
                 </label>
 
@@ -87,10 +100,12 @@ function Contact({ theme }) {
                   required
                 />
               </div>
+
             </div>
 
+            {/* MESSAGE */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium">
+              <label className="block text-sm font-semibold">
                 Pesan
               </label>
 
@@ -103,10 +118,15 @@ function Contact({ theme }) {
               />
             </div>
 
-            <div className="flex gap-4 pt-4">
+            {/* BUTTONS */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
+
               <button
                 type="submit"
-                className="flex-1 px-8 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-90 transition"
+                className="flex-1 px-8 py-3 rounded-lg
+                  font-bold text-white bg-red-600
+                  hover:bg-red-700 hover:-translate-y-1
+                  transition-all duration-300"
               >
                 Kirim Pesan
                 <i className="ri-send-plane-2-line ml-2" />
@@ -114,17 +134,28 @@ function Contact({ theme }) {
 
               <button
                 type="reset"
-                className={`px-8 py-3 rounded-lg font-semibold border transition ${
-                  theme === 'dark'
-                    ? 'border-cyan-500/50 text-cyan-300 hover:bg-cyan-500/10'
-                    : 'border-cyan-400/50 text-cyan-600 hover:bg-cyan-400/10'
-                }`}
+                className={`px-8 py-3 rounded-lg
+                  font-bold border transition-all duration-300 ${
+                    isDark
+                      ? 'border-amber-700 text-amber-200 hover:bg-amber-900'
+                      : 'border-amber-400 text-amber-900 hover:bg-amber-200'
+                  }`}
               >
                 Reset
               </button>
+
             </div>
           </form>
         </div>
+
+        {/* BOTTOM LABEL */}
+        <div className="flex justify-between items-center
+          mt-8 text-[9px] sm:text-[10px] tracking-widest
+          opacity-50">
+          <span>PORTFOLIO / CONTACT</span>
+          <span>LET'S CONNECT</span>
+        </div>
+
       </div>
     </section>
   );

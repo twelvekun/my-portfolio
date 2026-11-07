@@ -24,7 +24,7 @@ function Hero({ theme }) {
 
   const bg = isDark
     ? 'bg-amber-950 text-amber-50'
-    : 'bg-[#F8F7F3] text-neutral-950';
+    : 'bg-amber-100 text-neutral-950';
 
   return (
     <section
@@ -53,13 +53,13 @@ function Hero({ theme }) {
             shadow-sm backdrop-blur-md ${
               isDark
                 ? 'bg-amber-900/50 border-amber-700'
-                : 'bg-white border-neutral-200'
+                : 'bg-amber-100 border-neutral-200'
             }`}>
 
               <span className="w-2 h-2 rounded-full
               bg-emerald-500 animate-pulse" />
 
-              Available for New Project
+              Available for Work
 
             </div>
 

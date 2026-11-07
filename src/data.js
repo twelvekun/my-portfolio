@@ -1,10 +1,12 @@
-import HeroImage from "/assets/DataImage.png";
+import HeroImage from "/assets/DataImage.webp";
 import HeroImage2 from "/assets/gua2.jpeg";
 import HeroImage3 from "/assets/image.png";
-import AboutImage from "/assets/about.png"
+import AboutImage from "/assets/AboutImage.jpg"
+import Logo from "/assets/Logo.webp";
+import LogoDark from "/assets/LogoDark.webp";
 
 const Image = {
-  HeroImage,HeroImage2, HeroImage3 , AboutImage
+  HeroImage,HeroImage2, HeroImage3 , AboutImage, Logo, LogoDark
 };
 
 export default Image;

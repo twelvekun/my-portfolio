@@ -14,7 +14,7 @@ import Portfolio from './components/sections/Portfolio';
 import Contact from './components/sections/Contact';
 
 import { listProyek, listServices } from './data';
-import Services from './components/Services';
+import Services from './components/sections/Services';
 
 function App() {
   const [theme, setTheme] = useTheme();
@@ -82,7 +82,7 @@ useEffect(() => {
             const element = entry.target;
 
             element.style.transition =
-              'all 900ms cubic-bezier(.2,.9,.3,1)';
+              'opacity 600ms ease, transform 600ms ease';
 
             element.style.opacity = '1';
             element.style.transform = 'translateY(0) scale(1)';
@@ -94,13 +94,16 @@ useEffect(() => {
       { threshold: 0.12 }
     );
 
-    elements.forEach((element, index) => {
-      element.style.opacity = '0';
-      element.style.transform = 'translateY(16px) scale(0.98)';
-      element.style.transitionDelay = `${(index % 90) * 900}ms`;
+    
+elements.forEach((element) => {
+  element.style.opacity = '0';
+  element.style.transform = 'translateY(12px)';
 
-      observer.observe(element);
-    });
+  element.style.transitionDelay = '0ms';
+
+  observer.observe(element);
+});
+
 
     return () => observer.disconnect();
   }, [loading]);
@@ -154,8 +157,11 @@ useEffect(() => {
         />
 
         <div id="layanan">
-          <Services services={listServices} />
-        </div>
+  <Services
+    services={listServices}
+    theme={theme}
+  />
+</div>
 
         <Contact theme={theme} />
       </main>

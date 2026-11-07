@@ -1,114 +1,196 @@
-import DataImage from '../../data';
 
-function About({ theme }) {
-  return (
-    <section
-      id="tentang"
-      className={`relative py-20 px-5 section-reveal transition-colors duration-300 ${
-        theme === 'dark' ? 'bg-stone-900' : 'bg-amber-50'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto">
-       
+    import DataImage from '../../data';
 
-        <div className="group relative">
+    function About({ theme }) {
+      const isDark = theme === 'dark';
+
+      const gallery = [
+        DataImage.HeroImage,
+        DataImage.HeroImage2,
+        DataImage.HeroImage3,
+        DataImage.AboutImage,
+      ];
+
+      return (
+        <section
+          id="tentang"
+          className={`relative px-3 sm:px-5 py-8 sm:py-12 transition-colors duration-500 ${
+            isDark ? 'bg-amber-950' : 'bg-amber-100'
+          }`}
+        >
+          {/* MAIN FRAME */}
           <div
-            className={`absolute -inset-1 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500 ${
-              theme === 'dark'
-                ? 'bg-gradient-to-r from-amber-600/30 to-yellow-600/30'
-                : 'bg-gradient-to-r from-amber-400/30 to-yellow-400/30'
-            }`}
-          />
-
-          <div
-            className={`relative backdrop-blur-xl rounded-2xl border transition-all duration-300 ${
-              theme === 'dark'
-                ? 'bg-neutral-900/80 border-amber-500/20 group-hover:border-amber-500/50 shadow-2xl'
-                : 'bg-amber-50/40 border-amber-200 shadow-xl shadow-amber-900/5 group-hover:border-amber-400'
+            className={`relative max-w-[1500px] mx-auto overflow-hidden rounded-xl
+            border p-5 sm:p-8 lg:p-12 ${
+              isDark
+                ? 'bg-[#100d0c] border-amber-900/30 text-white'
+                : 'bg-[#171412] border-neutral-300 text-white'
             }`}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-5 items-center">
-              {/* Image */}
-              <div className="hidden lg:flex lg:col-span-2 p-6 lg:p-8">
-                <img
-                  src={DataImage.AboutImage}
-                  alt="About Sadad Fathoni"
-                  className="w-full h-auto object-cover rounded-lg max-w-sm shadow-md border border-amber-500/20"
-                  loading="lazy"
-                />
-              </div>
 
-              {/* Content */}
-              <div className="lg:col-span-3 p-8 md:p-12 space-y-8">
-                <h2 className="text-4xl font-bold">
-                  <span
-                    className={`bg-gradient-to-r ${
-                      theme === 'dark'
-                        ? 'from-amber-400 to-yellow-400'
-                        : 'from-amber-600 to-yellow-600'
-                    } bg-clip-text text-transparent`}
-                  >
-                    About
+            {/* DECORATIVE GRID */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-[0.08]"
+              style={{
+                backgroundImage: `
+                  linear-gradient(to right, #ffffff 1px, transparent 1px)
+                `,
+                backgroundSize: '25% 100%',
+              }}
+            />
+
+            <div className="relative z-10">
+
+              {/* TOP LABEL */}
+              <div className="text-center mb-7 sm:mb-10">
+
+                <span className="text-[9px] sm:text-xs uppercase
+                  tracking-[0.3em] text-red-500 font-bold">
+                  About Me — 2026
+                </span>
+
+                <h2 className="mt-2 text-3xl sm:text-5xl
+                  lg:text-7xl font-black uppercase
+                  tracking-tight leading-[0.95]">
+                  Building Digital
+                  <br />
+                  <span className="text-red-500">
+                    Experiences.
                   </span>
                 </h2>
 
-                <p
-                  className={`text-lg leading-relaxed ${
-                    theme === 'dark' ? 'text-neutral-300' : 'text-neutral-700'
-                  }`}
-                >
-                  Saya adalah Freelance Full Stack Developer yang memiliki
-                  passion dalam merancang, membangun dan menguji website ataupun aplikasi
-                  mobile. Saya berfokus pada pengembangan solusi
-                  digital yang fungsional, responsif, dan mudah
-                  digunakan.
-                </p>
+              </div>
+
+              {/* MINI GALLERY */}
+              <div className="grid grid-cols-4 gap-2
+                max-w-md mx-auto mb-3 sm:mb-5">
+
+                {gallery.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`aspect-square overflow-hidden border ${
+                      isDark
+                        ? 'border-red-900/50'
+                        : 'border-red-800/50'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Portfolio gallery ${index + 1}`}
+                      className="w-full h-full object-cover
+                        grayscale hover:grayscale-0
+                        hover:scale-110 transition-all duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
 
               </div>
+
+              {/* MAIN IMAGE */}
+              <div className="relative w-full overflow-hidden
+                aspect-[4/3] sm:aspect-[16/8]
+                bg-neutral-900 border border-red-900/40">
+
+                <img
+                  src={DataImage.AboutImage}
+                  alt="About Ahmad Sadad Fathoni"
+                  className="w-full h-full object-cover
+                    object-center transition-transform
+                    duration-700 hover:scale-105"
+                  loading="lazy"
+                />
+
+                {/* IMAGE LABEL */}
+                <div className="absolute bottom-3 left-3
+                  sm:bottom-5 sm:left-5">
+
+                  <span className="px-3 py-1.5
+                    bg-red-600 text-white text-[9px]
+                    sm:text-xs font-bold tracking-widest">
+                    MY CREATIVE SPACE
+                  </span>
+
+                </div>
+
+              </div>
+
+              {/* CONTENT */}
+              <div className="grid grid-cols-1
+                lg:grid-cols-[1fr_auto]
+                gap-6 sm:gap-8 mt-7 sm:mt-10
+                items-end">
+
+                {/* DESCRIPTION */}
+                <div className="max-w-xl">
+
+                  <span className="text-red-500
+                    text-[10px] sm:text-xs font-bold
+                    tracking-[0.25em] uppercase">
+                    Who I Am
+                  </span>
+
+                  <h3 className="text-2xl sm:text-4xl
+                    font-black uppercase mt-2 mb-4
+                    leading-tight">
+                    Full Stack Developer
+                  </h3>
+
+                  <p className="text-xs sm:text-sm
+                    text-neutral-400 leading-[1.9]">
+                    Saya adalah Freelance Full Stack Developer
+                    yang memiliki passion dalam merancang,
+                    membangun, dan menguji website maupun
+                    aplikasi mobile. Saya berfokus pada
+                    pengembangan solusi digital yang
+                    fungsional, responsif, modern, dan
+                    mudah digunakan.
+                  </p>
+
+                </div>
+
+                {/* BUTTON */}
+                <div className="flex lg:justify-end">
+
+                  <a
+                    href="#layanan"
+                    className="inline-flex items-center
+                      justify-center gap-3 px-5 py-3
+                      rounded-full bg-white text-neutral-950
+                      text-xs font-bold uppercase
+                      tracking-wide hover:bg-red-600
+                      hover:text-white transition-all
+                      duration-300"
+                  >
+                    Explore My Services
+                    <i className="ri-arrow-right-up-line text-base" />
+                  </a>
+
+                </div>
+
+              </div>
+
+              {/* BOTTOM DECORATION */}
+              <div className="flex justify-between
+                items-center mt-8 pt-4
+                border-t border-white/10">
+
+                <span className="text-[9px]
+                  tracking-[0.2em] text-neutral-500">
+                  PORTFOLIO / ABOUT
+                </span>
+
+                <span className="text-[9px]
+                  tracking-[0.2em] text-red-500">
+                  01 — 04
+                </span>
+
+              </div>
+
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+        </section>
+      );
+    }
 
-function AboutStat({ icon, value, label, color, theme }) {
-  const colors = {
-    amber: theme === 'dark' ? 'text-amber-400' : 'text-amber-600',
-    yellow: theme === 'dark' ? 'text-yellow-400' : 'text-yellow-600',
-    orange: theme === 'dark' ? 'text-orange-400' : 'text-orange-600',
-  };
-
-  const backgrounds = {
-    amber: theme === 'dark' ? 'bg-amber-500/10 border border-amber-500/20' : 'bg-amber-100 border border-amber-200',
-    yellow: theme === 'dark' ? 'bg-yellow-500/10 border border-yellow-500/20' : 'bg-yellow-100 border border-yellow-200',
-    orange: theme === 'dark' ? 'bg-orange-500/10 border border-orange-500/20' : 'bg-orange-100 border border-orange-200',
-  };
-
-  return (
-    <div className="flex items-start gap-4">
-      <div
-        className={`w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 ${backgrounds[color]}`}
-      >
-        <i className={`${icon} text-2xl ${colors[color]}`} />
-      </div>
-
-      <div>
-        <h3 className={`text-3xl font-bold ${colors[color]}`}>
-          {value}
-        </h3>
-
-        <p
-          className={`text-sm ${
-            theme === 'dark' ? 'text-neutral-400' : 'text-neutral-600'
-          }`}
-        >
-          {label}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-export default About;
+    export default About;

@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import Image from '../data';
 
 import {
   RiSunLine,
@@ -121,16 +122,16 @@ const Navbar = ({
             </button>
 
             <div
-              className="flex items-center gap-2 cursor-pointer"
-              onClick={(e) => handleScroll(e, '#home')}
-            >
-              <div className="w-10 h-10 rounded-lg
-              bg-gradient-to-br from-amber-500 to-yellow-600
-              flex items-center justify-center text-white
-              font-bold shadow-md">
-                SF
-              </div>
-            </div>
+  className="flex items-center gap-2 cursor-pointer"
+  onClick={(e) => handleScroll(e, '#home')}
+>
+  <img
+  src={theme === 'dark' ? Image.LogoDark : Image.Logo}
+  alt="Ahmad Sadad Fathoni"
+  className="absolute -right-0 top-1/2 w-30 h-30
+  -translate-y-1/2 object-contain"
+/>
+</div>
 
           </div>
         </div>
