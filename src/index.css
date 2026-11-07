@@ -33,4 +33,109 @@
     from, to { border-color: transparent; }
     50% { border-color: black; }
   }
+  
 }
+
+/* Loading background glow */
+.loader-glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.2;
+  animation: glowFloat 4s ease-in-out infinite alternate;
+}
+
+.loader-glow-one {
+  background: #38bdf8;
+  top: 15%;
+  left: -180px;
+}
+
+.loader-glow-two {
+  background: #fb7185;
+  bottom: 5%;
+  right: -180px;
+  animation-delay: 1s;
+}
+
+/* Logo entrance */
+.loader-logo {
+  animation: logoEntrance 1.2s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Progress bar */
+.loader-progress-track {
+  height: 2px;
+  width: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.loader-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #fda4af,
+    #fb7185
+  );
+  box-shadow: 0 0 12px rgba(251, 113, 133, 0.7);
+  animation: progressLoading 5s
+    cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes logoEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.9);
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes progressLoading {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes glowFloat {
+  from {
+    transform: translateY(-20px) scale(0.9);
+  }
+
+  to {
+    transform: translateY(20px) scale(1.15);
+  }
+}
+
+/* Circular logo rotation */
+.animate-circle-spin {
+  animation: circleSpin 12s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes circleSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+

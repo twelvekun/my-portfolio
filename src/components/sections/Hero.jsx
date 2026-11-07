@@ -53,11 +53,11 @@ function Hero({ theme }) {
             shadow-sm backdrop-blur-md ${
               isDark
                 ? 'bg-amber-900/50 border-amber-700'
-                : 'bg-amber-100 border-neutral-200'
+                : 'bg-red border-neutral-200'
             }`}>
 
               <span className="w-2 h-2 rounded-full
-              bg-emerald-500 animate-pulse" />
+              bg-red-500 animate-pulse" />
 
               Available for Work
 
@@ -215,32 +215,32 @@ function Hero({ theme }) {
       flex flex-col px-5 sm:px-8 pt-24 pb-8">
 
         {/* BADGE */}
-        <div className="relative z-20 flex items-center
-        justify-between">
+<div className="relative z-20 flex items-center
+justify-between">
 
-          <div className={`inline-flex items-center gap-2
-          px-3 py-2 rounded-full border text-xs
-          shadow-sm backdrop-blur-md ${
-            isDark
-              ? 'border-amber-700 bg-amber-900/50'
-              : 'border-neutral-200 bg-white'
-          }`}>
+  <div className={`inline-flex items-center gap-2
+  px-3 py-2 rounded-full border text-xs
+  shadow-sm backdrop-blur-md ${
+    isDark
+      ? 'border-amber-700 bg-amber-900/50'
+      : 'border-neutral-200 bg-white'
+  }`}>
 
-            <span className="w-2 h-2 rounded-full
-            bg-emerald-500 animate-pulse" />
+    <span className="w-2 h-2 rounded-full
+    bg-red-500 animate-pulse" />
 
-            Available for New Project
+    Available for Work
 
-          </div>
+  </div>
 
-          <span className="hidden sm:block text-xs
-          opacity-50 tracking-widest">
+  <span className="hidden sm:block text-xs
+  opacity-50 tracking-widest">
 
-            PORTFOLIO — 2026
+    PORTFOLIO — 2026
 
-          </span>
+  </span>
 
-        </div>
+</div>
 
         {/* NAME */}
         <div className="relative z-10 mt-10 text-center">
@@ -263,6 +263,17 @@ function Hero({ theme }) {
 
             <span className="block">
               SADAD
+            </span>
+              <span
+              className="block"
+              style={{
+                WebkitTextStroke: isDark
+                  ? '1.5px #fff7ed'
+                  : '1.5px #171717',
+                color: 'transparent'
+              }}
+            >
+              FATHONI
             </span>
 
           </h1>

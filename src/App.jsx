@@ -18,7 +18,9 @@ import Services from './components/sections/Services';
 
 function App() {
   const [theme, setTheme] = useTheme();
-  const [loading, setLoading] = useState(true);
+ const [loading, setLoading] = useState(true);
+const loadingTimer = useRef(null);
+const isMobile = useRef(null);
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
   const lastScrollY = useRef(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,13 +59,46 @@ useEffect(() => {
   }
 }, [menuOpen]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 700);
+  
+useEffect(() => {
+  // Deteksi ukuran layar awal
+  isMobile.current = window.innerWidth < 768;
 
-    return () => clearTimeout(timer);
-  }, []);
+  // Loading pertama kali dan setiap refresh
+  setLoading(true);
+
+  loadingTimer.current = setTimeout(() => {
+    setLoading(false);
+  }, 5000);
+
+  // Deteksi perubahan ukuran layar
+  const handleResize = () => {
+    const currentIsMobile = window.innerWidth < 768;
+
+    // Hanya jalankan jika berpindah breakpoint
+    if (currentIsMobile !== isMobile.current) {
+      isMobile.current = currentIsMobile;
+
+      // Tampilkan kembali overlay
+      setLoading(true);
+
+      // Reset timer sebelumnya
+      clearTimeout(loadingTimer.current);
+
+      loadingTimer.current = setTimeout(() => {
+        setLoading(false);
+      }, 5000);
+    }
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  return () => {
+    clearTimeout(loadingTimer.current);
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+
 
   useEffect(() => {
     if (loading) return;
@@ -108,13 +143,14 @@ elements.forEach((element) => {
     return () => observer.disconnect();
   }, [loading]);
 
-  return (
+ return (
   <div
-    className={`min-h-screen w-full font-sans overflow-x-hidden transition-colors duration-500 relative ${
-      theme === 'dark'
-        ? 'bg-gradient-to-br from-[#030712] via-[#0f172a] to-[#09090b] text-white'
-        : 'bg-[#F8FAFC] text-[#0F172A]'
-    }`}
+    className={`min-h-screen w-full font-sans overflow-x-hidden
+      transition-colors duration-500 relative ${
+        theme === 'dark'
+          ? 'bg-amber-950 text-amber-50'
+          : 'bg-amber-100 text-neutral-950'
+      }`}
   >
     <Background theme={theme} />
 
@@ -166,7 +202,7 @@ elements.forEach((element) => {
         <Contact theme={theme} />
       </main>
 
-      <Footer />
+      <Footer theme={theme} />
     </div>
   </div>
 );
